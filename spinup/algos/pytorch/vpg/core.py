@@ -1,11 +1,10 @@
 import numpy as np
 import scipy.signal
-from gymnasium.spaces import Box, Discrete
-
 import torch
 import torch.nn as nn
-from torch.distributions.normal import Normal
+from gymnasium.spaces import Box, Discrete
 from torch.distributions.categorical import Categorical
+from torch.distributions.normal import Normal
 
 
 def combined_shape(length, shape=None):

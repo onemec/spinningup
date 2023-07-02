@@ -1,8 +1,10 @@
-import joblib
 import os
 import os.path as osp
+
+import joblib
 import tensorflow as tf
 import torch
+
 from spinup import EpochLogger
 from spinup.utils.logx import restore_tf_graph
 

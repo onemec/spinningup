@@ -1,7 +1,7 @@
-import torch.nn as nn
 import numpy as np
-from spinup.exercises.pytorch.problem_set_1 import exercise1_1
-from spinup.exercises.pytorch.problem_set_1 import exercise1_2_auxiliary
+import torch.nn as nn
+
+from spinup.exercises.pytorch.problem_set_1 import exercise1_1, exercise1_2_auxiliary
 
 """
 
@@ -106,13 +106,15 @@ if __name__ == "__main__":
     Run this file to verify your solution.
     """
 
+    import os
+    import time
+    from functools import partial
+
+    import gymnasium as gym
+    import pandas as pd
+
     from spinup import ppo_pytorch as ppo
     from spinup.exercises.common import print_result
-    from functools import partial
-    import gymnasium as gym
-    import os
-    import pandas as pd
-    import time
 
     logdir = "/tmp/experiments/%i" % int(time.time())
 

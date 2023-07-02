@@ -1,7 +1,7 @@
-import tensorflow as tf
-import numpy as np
 import gymnasium as gym
-from gymnasium.spaces import Discrete, Box
+import numpy as np
+import tensorflow as tf
+from gymnasium.spaces import Box, Discrete
 
 
 def mlp(x, sizes, activation=tf.tanh, output_activation=None):

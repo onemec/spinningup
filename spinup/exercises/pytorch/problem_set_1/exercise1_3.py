@@ -1,10 +1,12 @@
-from copy import deepcopy
 import itertools
+import time
+from copy import deepcopy
+
+import gymnasium as gym
 import numpy as np
 import torch
 from torch.optim import Adam
-import gymnasium as gym
-import time
+
 import spinup.algos.pytorch.td3.core as core
 from spinup.algos.pytorch.td3.td3 import td3 as true_td3
 from spinup.utils.logx import EpochLogger

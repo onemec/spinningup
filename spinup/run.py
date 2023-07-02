@@ -1,11 +1,14 @@
-from spinup.user_config import DEFAULT_BACKEND
-from spinup.utils.run_utils import ExperimentGrid
-import gymnasium as gym
-import os, subprocess, sys
+import os
 import os.path as osp
+import subprocess
+import sys
 from copy import deepcopy
 from textwrap import dedent
 
+import gymnasium as gym
+
+from spinup.user_config import DEFAULT_BACKEND
+from spinup.utils.run_utils import ExperimentGrid
 
 # Command line args that will go to ExperimentGrid.run, and must possess unique
 # values (therefore must be treated separately).

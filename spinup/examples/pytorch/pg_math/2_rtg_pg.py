@@ -1,10 +1,10 @@
+import gymnasium as gym
+import numpy as np
 import torch
 import torch.nn as nn
+from gymnasium.spaces import Box, Discrete
 from torch.distributions.categorical import Categorical
 from torch.optim import Adam
-import numpy as np
-import gymnasium as gym
-from gymnasium.spaces import Discrete, Box
 
 
 def mlp(sizes, activation=nn.Tanh, output_activation=nn.Identity):

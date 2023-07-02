@@ -1,5 +1,6 @@
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
+
 from spinup.exercises.tf1.problem_set_1 import exercise1_1
 
 """
@@ -95,12 +96,14 @@ if __name__ == "__main__":
     Run this file to verify your solution.
     """
 
+    import os
+    import time
+
+    import gymnasium as gym
+    import pandas as pd
+
     from spinup import ppo_tf1 as ppo
     from spinup.exercises.common import print_result
-    import gymnasium as gym
-    import os
-    import pandas as pd
-    import time
 
     logdir = "/tmp/experiments/%i" % int(time.time())
     ppo(

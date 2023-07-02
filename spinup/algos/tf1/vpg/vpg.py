@@ -1,11 +1,13 @@
+import time
+
+import gymnasium as gym
 import numpy as np
 import tensorflow as tf
-import gymnasium as gym
-import time
+
 import spinup.algos.tf1.vpg.core as core
 from spinup.utils.logx import EpochLogger
 from spinup.utils.mpi_tf import MpiAdamOptimizer, sync_all_params
-from spinup.utils.mpi_tools import mpi_fork, proc_id, mpi_statistics_scalar, num_procs
+from spinup.utils.mpi_tools import mpi_fork, mpi_statistics_scalar, num_procs, proc_id
 
 
 class VPGBuffer:
