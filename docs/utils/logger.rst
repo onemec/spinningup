@@ -76,7 +76,7 @@ Next, let's look at a full training procedure with the logger embedded, to highl
         y = tf.one_hot(y_ph, 10)
         loss = tf.losses.softmax_cross_entropy(y, logits)
         acc = tf.reduce_mean(tf.cast(tf.equal(y_ph, predict), tf.float32))
-        train_op = tf.train.AdamOptimizer().minimize(loss)
+        train_op = tf.optimizers.Adam().minimize(loss)
 
         # Prepare session
         sess = tf.Session()

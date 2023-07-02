@@ -15,6 +15,7 @@ so make sure to complete that exercise before beginning this one.
 
 EPS = 1e-8
 
+
 def mlp(x, hidden_sizes=(32,), activation=tf.tanh, output_activation=None):
     """
     Builds a multi-layer perceptron in Tensorflow.
@@ -40,7 +41,10 @@ def mlp(x, hidden_sizes=(32,), activation=tf.tanh, output_activation=None):
     #######################
     pass
 
-def mlp_gaussian_policy(x, a, hidden_sizes, activation, output_activation, action_space):
+
+def mlp_gaussian_policy(
+    x, a, hidden_sizes, activation, output_activation, action_space
+):
     """
     Builds symbols to sample actions and compute log-probs of actions.
 
@@ -62,13 +66,13 @@ def mlp_gaussian_policy(x, a, hidden_sizes, activation, output_activation, actio
             environment this agent will interact with.
 
     Returns:
-        pi: A symbol for sampling stochastic actions from a Gaussian 
+        pi: A symbol for sampling stochastic actions from a Gaussian
             distribution.
 
-        logp: A symbol for computing log-likelihoods of actions from a Gaussian 
+        logp: A symbol for computing log-likelihoods of actions from a Gaussian
             distribution.
 
-        logp_pi: A symbol for computing log-likelihoods of actions in pi from a 
+        logp_pi: A symbol for computing log-likelihoods of actions in pi from a
             Gaussian distribution.
 
     """
@@ -77,38 +81,41 @@ def mlp_gaussian_policy(x, a, hidden_sizes, activation, output_activation, actio
     #   YOUR CODE HERE    #
     #                     #
     #######################
-    # mu = 
-    # log_std = 
-    # pi = 
+    # mu =
+    # log_std =
+    # pi =
 
     logp = exercise1_1.gaussian_likelihood(a, mu, log_std)
     logp_pi = exercise1_1.gaussian_likelihood(pi, mu, log_std)
     return pi, logp, logp_pi
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     Run this file to verify your solution.
     """
 
     from spinup import ppo_tf1 as ppo
     from spinup.exercises.common import print_result
-    import gym
+    import gymnasium as gym
     import os
     import pandas as pd
-    import psutil
     import time
 
-    logdir = "/tmp/experiments/%i"%int(time.time())
-    ppo(env_fn = lambda : gym.make('InvertedPendulum-v2'),
+    logdir = "/tmp/experiments/%i" % int(time.time())
+    ppo(
+        env_fn=lambda: gym.make("InvertedPendulum-v2", render_mode="human"),
         ac_kwargs=dict(policy=mlp_gaussian_policy, hidden_sizes=(64,)),
-        steps_per_epoch=4000, epochs=20, logger_kwargs=dict(output_dir=logdir))
+        steps_per_epoch=4000,
+        epochs=20,
+        logger_kwargs=dict(output_dir=logdir),
+    )
 
     # Get scores from last five epochs to evaluate success.
-    data = pd.read_table(os.path.join(logdir,'progress.txt'))
-    last_scores = data['AverageEpRet'][-5:]
+    data = pd.read_table(os.path.join(logdir, "progress.txt"))
+    last_scores = data["AverageEpRet"][-5:]
 
     # Your implementation is probably correct if the agent has a score >500,
     # or if it reaches the top possible score of 1000, in the last five epochs.
-    correct = np.mean(last_scores) > 500 or np.max(last_scores)==1e3
+    correct = np.mean(last_scores) > 500 or np.max(last_scores) == 1e3
     print_result(correct)
