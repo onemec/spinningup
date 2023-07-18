@@ -1,4 +1,4 @@
-cloudpickle~=1.6.0
+cloudpickle~=2.2.1
 gym~=0.15.3
 ipython
 joblib
