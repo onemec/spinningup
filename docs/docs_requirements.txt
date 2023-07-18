@@ -1,5 +1,5 @@
 cloudpickle~=1.6.0
-gym~=0.15.3
+gym~=0.26.2
 ipython
 joblib
 matplotlib
