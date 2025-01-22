@@ -8,9 +8,9 @@ pandas
 pytest
 psutil
 scipy
-seaborn==0.13.1
-sphinx==7.2.6
-sphinx-autobuild==2024.4.16       
+seaborn==0.13.2
+sphinx==7.3.7
+sphinx-autobuild==2024.4.16
 sphinx-rtd-theme==2.0.0 
 tensorflow>=2.13,<3
 tqdm
